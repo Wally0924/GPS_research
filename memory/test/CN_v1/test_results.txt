@@ -1,0 +1,38 @@
+Enhanced GeoSegformer Test Results
+==================================================
+
+Checkpoint: /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth
+Memory Bank: True
+Test samples: 24
+Average Loss: 0.12060
+Mean IoU: 0.75297
+Mean Accuracy: 0.86927
+Average Memory Weight: 0.9531
+Memory Usage Rate: 100.00%
+
+Per-category results:
+buildings: IoU=0.91546, Acc=0.96093
+roadlines: IoU=0.77447, Acc=0.90373
+roads: IoU=0.97138, Acc=0.98065
+vehicles: IoU=0.92563, Acc=0.94820
+walls: IoU=0.74600, Acc=0.83612
+sky: IoU=0.93891, Acc=0.96838
+ground: IoU=0.91384, Acc=0.95119
+trafficlight: IoU=0.80361, Acc=0.89496
+rider: IoU=0.76130, Acc=0.97665
+motorcycle: IoU=0.34363, Acc=0.46099
+bicycle: IoU=0.59948, Acc=0.85489
+truck: IoU=0.72959, Acc=0.93128
+bus: IoU=0.95097, Acc=0.96176
+pedestrians: IoU=0.66956, Acc=0.83736
+static: IoU=0.78374, Acc=0.87617
+pole: IoU=0.60011, Acc=0.82504
+sidewalks: IoU=0.93101, Acc=0.97406
+dynamic: IoU=0.78315, Acc=0.88513
+trafficsign: IoU=0.67365, Acc=0.82702
+vegetation: IoU=0.82883, Acc=0.88180
+water: IoU=0.48746, Acc=0.66826
+terrain: IoU=0.58549, Acc=0.87214
+railtrack: IoU=0.95111, Acc=0.95500
+poster: IoU=0.83273, Acc=0.94951
+Fences: IoU=0.32320, Acc=0.55063

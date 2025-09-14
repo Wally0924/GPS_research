@@ -1,0 +1,52 @@
+
+原始
+改 V10n
+python true_gps_training_v4.1.py \
+  --data data_gps.yaml \
+  --gps-train-csv data/data_gps/train_gnss.csv \
+  --gps-val-csv data/data_gps/val_gnss.csv \
+  --model yolov10n.yaml \
+  --epochs 10000 \
+  --batch-size 16 \
+  --imgsz 640
+
+python true_gps_training_v4.1.py \
+  --val \
+  --data data_gps.yaml \
+  --gps-val-csv val_gnss.csv \
+  --model runs/train/exp/weights/best.pt \
+  --batch-size 16 \
+  --imgsz 640
+
+
+python true_gps_training_v4.1.py \
+  --predict \
+  --model runs/train7/weights/best.pt \
+  --gps-val-csv data/val_gnss.csv \
+  --source data/data_gps/val/images \
+  --imgsz 640 
+
+ yolo task=detect mode=train    model=yolov10n.pt    data=data_gps.yaml    imgsz=640    batch=16    epochs=10000    name=my_run
+
+ yolo val model=runs/detect/my_run7/weights/best.pt source=/home/rvl122-4090/An/GPS_v10/data/data_gps/val/images imgsz=640 data=data_gps.yaml
+
+ yolo predict model=runs/detect/my_run7/weights/best.pt source=/home/rvl122-4090/An/GPS_v10/data/data_gps/val/images save=True save_txt=True
+
+
+
+python true_gps_training_v4.3.py \
+  --model runs/detect/train7/weights/best.pt \
+  --data data_gps.yaml \
+  --gps-val-csv data/val_gps.csv \
+  --memory-analysis \
+  --val
+
+
+
+原V10n
+ yolo task=detect mode=train    model=yolov10n.pt    data=data.yaml    imgsz=640    batch=16    epochs=10000    name=my_run
+
+ yolo val model=runs/detect/my_run7/weights/best.pt source=/home/rvl122-4090/An/data/val/images imgsz=640 data=data.yaml
+
+ yolo predict model=runs/detect/my_run7/weights/best.pt source=/home/rvl122-4090/An/GPS_v10/data/val/images save=True save_txt=True
+

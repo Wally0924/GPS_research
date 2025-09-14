@@ -1,0 +1,103 @@
+{
+  "analysis_date": "2025-07-04T02:26:17.480026",
+  "input_files": {
+    "train_gps_csv": "data/gnss/train_gnss.csv",
+    "val_gps_csv": "data/gnss/val_gnss.csv"
+  },
+  "data_summary": {
+    "train_samples": 10518,
+    "val_samples": 2630,
+    "total_samples": 13148
+  },
+  "analysis_results": {
+    "spatial": {
+      "lat_stats": {
+        "min": -0.0012254,
+        "max": -0.0002118,
+        "mean": -0.0006598112564648616,
+        "std": 0.0003862243292023311,
+        "range": 0.0010136
+      },
+      "long_stats": {
+        "min": -0.0004073,
+        "max": 0.0009282,
+        "mean": 0.00014445551414663828,
+        "std": 0.00048795002421971213,
+        "range": 0.0013354999999999999
+      },
+      "spatial_area": 1.3536627999999998e-06,
+      "point_density": 9712906345.657133
+    },
+    "clusters": {
+      "precision_analysis": {
+        "4": {
+          "unique_locations": 61,
+          "avg_images_per_location": 215.54098360655738,
+          "max_images_per_location": 1522,
+          "locations_with_multiple_images": 60,
+          "duplicate_rate": 98.36065573770492
+        },
+        "5": {
+          "unique_locations": 968,
+          "avg_images_per_location": 13.582644628099173,
+          "max_images_per_location": 392,
+          "locations_with_multiple_images": 899,
+          "duplicate_rate": 92.87190082644628
+        },
+        "6": {
+          "unique_locations": 5666,
+          "avg_images_per_location": 2.3205082950935405,
+          "max_images_per_location": 313,
+          "locations_with_multiple_images": 1706,
+          "duplicate_rate": 30.109424638192728
+        },
+        "7": {
+          "unique_locations": 7740,
+          "avg_images_per_location": 1.6987080103359173,
+          "max_images_per_location": 209,
+          "locations_with_multiple_images": 527,
+          "duplicate_rate": 6.808785529715762
+        }
+      },
+      "best_precision": 6,
+      "recommended_stats": {
+        "unique_locations": 5666,
+        "avg_images_per_location": 2.3205082950935405,
+        "max_images_per_location": 313,
+        "locations_with_multiple_images": 1706,
+        "duplicate_rate": 30.109424638192728
+      }
+    },
+    "distances": {
+      "min_distance": 9.9999999999997e-07,
+      "max_distance": 0.0014755422731999243,
+      "mean_distance": 0.0008350262470747797,
+      "median_distance": 0.0009150937110038082,
+      "std_distance": 0.00042615149793965196,
+      "percentiles": {
+        "p10": 0.00017704858024672913,
+        "p25": 0.00048143196054295517,
+        "p75": 0.0012036680396194685,
+        "p90": 0.0013672833647692176
+      }
+    },
+    "recommendations": {
+      "spatial_radius": 8.9e-05,
+      "spatial_threshold": 0.000266,
+      "memory_size": 15,
+      "contrastive_weight": 0.03,
+      "memory_warmup_epochs": 5,
+      "model_size": "b1",
+      "feature_dim": 512,
+      "fusion_method": "attention",
+      "lr_backbone": 7.8e-05,
+      "lr_head": 0.00078,
+      "lr_gps": 0.00039,
+      "lr_memory": 0.00078,
+      "lr_fusion": 0.00078,
+      "gps_norm_method": "minmax",
+      "seg_weight": 1.0,
+      "temperature": 0.07
+    }
+  }
+}

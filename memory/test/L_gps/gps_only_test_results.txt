@@ -1,0 +1,36 @@
+GPS-only GeoSegformer Test Results (Memory Bank Disabled)
+============================================================
+
+Checkpoint: /home/rvl122-4090/An/memory/logdir/b8_v2_m0_seed_42/checkpoint_403_best.pth
+Memory Bank: DISABLED
+Test samples: 129
+Average Loss: 0.10370
+Mean IoU: 0.76430
+Mean Accuracy: 0.87355
+
+Per-category results:
+buildings: IoU=0.92915, Acc=0.96417
+roadlines: IoU=0.77331, Acc=0.88734
+roads: IoU=0.97393, Acc=0.98435
+vehicles: IoU=0.90449, Acc=0.94258
+walls: IoU=0.77027, Acc=0.85204
+sky: IoU=0.94712, Acc=0.97260
+ground: IoU=0.91986, Acc=0.95849
+trafficlight: IoU=0.80347, Acc=0.90087
+rider: IoU=0.65811, Acc=0.84146
+motorcycle: IoU=0.65099, Acc=0.79058
+bicycle: IoU=0.29635, Acc=0.57510
+truck: IoU=0.91474, Acc=0.95705
+bus: IoU=0.86373, Acc=0.92821
+pedestrians: IoU=0.68979, Acc=0.82314
+static: IoU=0.82561, Acc=0.90563
+pole: IoU=0.63120, Acc=0.84560
+sidewalks: IoU=0.93172, Acc=0.96833
+dynamic: IoU=0.72821, Acc=0.81823
+trafficsign: IoU=0.70242, Acc=0.85219
+vegetation: IoU=0.83213, Acc=0.88677
+water: IoU=0.54768, Acc=0.76749
+terrain: IoU=0.65100, Acc=0.91226
+railtrack: IoU=0.98322, Acc=0.99093
+poster: IoU=0.87698, Acc=0.95732
+Fences: IoU=0.30204, Acc=0.55604

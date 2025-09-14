@@ -1,0 +1,14 @@
+path: /home/rvl122-4090/An/GPS_v10
+channels: 3
+names:
+  0: car
+  1: bus
+  2: truck
+  3: van
+  4: bicycle
+  5: motorcycle
+  6: person
+  7: traffic_light
+nc: 8
+train: data/train/images
+val: data/val/images

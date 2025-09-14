@@ -1,0 +1,105 @@
+
+
+記憶庫訓練參數
+python -m tools.geotrain_v2_early_memory data/train/train_rgb data/train/train_seg data/val/val_rgb data/val/val_seg data/csv/323.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv 1000 logdir/b8_v2_0.8 --memory-size 40 --spatial-radius 1e-06 --contrastive-weight 0.8 --spatial-threshold 0.001 --batch-size 8 --save-memory-stats --early-stop --patience 50 --min-delta 0.0001 --monitor mIoU --keep-only-best --seed 42 --lr-backbone 0.0002 --lr-head 0.0003 --lr-gps 0.0003 --lr-memory 0.0006 --lr-fusion 0.0006
+
+python -m tools.geotrain_v2_early_v1 data/train/train_rgb data/train/train_seg data/val/val_rgb data/val/val_seg data/csv/323.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv 1000 logdir/b8_v2 --memory-size 40 --spatial-radius 1e-06 --contrastive-weight 0.7 --spatial-threshold 0.001 --batch-size 8 --save-memory-stats --early-stop --patience 50 --min-delta 0.0001 --monitor mIoU --keep-only-best --seed 42 --lr-backbone 0.0002 --lr-head 0.0003 --lr-gps 0.0003 --lr-memory 0.0006 --lr-fusion 0.0006
+
+python -m tools.conweight data/train/train_rgb data/train/train_seg data/val/val_rgb data/val/val_seg data/csv/323.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv 1000 logdir/b8_v2_123 --memory-size 40 --spatial-radius 1e-06 --contrastive-weight 0.7 --spatial-threshold 0.001 --batch-size 8 --save-memory-stats 
+
+
+
+ GPS打亂
+python -m tools.geotrain_v2_early_memory data/train/train_rgb data/train/train_seg data/val/val_rgb data/val/val_seg data/csv/323.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv 1000 logdir/b8_v2_topk --memory-size 40 --spatial-radius 1e-06 --contrastive-weight 0.1 --spatial-threshold 0.001 --batch-size 8 --save-memory-stats --early-stop --patience 50 --min-delta 0.0001 --monitor mIoU --keep-only-best --seed 42 --lr-backbone 0.0002 --lr-head 0.0003 --lr-gps 0.0003 --lr-memory 0.0006 --lr-fusion 0.0006 --num-workers 8
+
+
+
+記憶庫測試
+python -m tools.test_memory /home/rvl122-4090/An/test_Final/ALL/images /home/rvl122-4090/An/test_Final/ALL/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/test_Final/ALL/test_gnss_shuffled.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test_final_shuffled/all_v1 --logdir logdir/b8_v2_seed_42 --batch-size 8
+
+python -m tools.test_memory /home/rvl122-4090/An/test_Final/SL/images /home/rvl122-4090/An/test_Final/SL/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/test_Final/SL/test_gnss.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test_final/SL_v1 --logdir logdir/b8_v2_seed_42 --batch-size 8
+
+python -m tools.test_memory /home/rvl122-4090/An/test_Final/S/images /home/rvl122-4090/An/test_Final/S/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/test_Final/S/test_gnss.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test_final/S_v1 --logdir logdir/b8_v2_seed_42 --batch-size 8
+
+python -m tools.test_memory /home/rvl122-4090/An/test_Final/R/images /home/rvl122-4090/An/test_Final/R/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/test_Final/R/test_gnss.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test_final/R_v1 --logdir logdir/b8_v2_seed_42 --batch-size 8
+
+python -m tools.test_memory /home/rvl122-4090/An/test_Final/RL/images /home/rvl122-4090/An/test_Final/RL/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/test_Final/RL/test_gnss.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test_final/RL_v1 --logdir logdir/b8_v2_seed_42 --batch-size 8
+
+python -m tools.test_memory /home/rvl122-4090/An/test_Final/N/images /home/rvl122-4090/An/test_Final/N/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/test_Final/N/test_gnss.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test_final/N_v1 --logdir logdir/b8_v2_seed_42 --batch-size 8
+
+python -m tools.test_memory /home/rvl122-4090/An/test_Final/C/images /home/rvl122-4090/An/test_Final/C/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/test_Final/C/test_gnss.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test_final/C_v1 --logdir logdir/b8_v2_seed_42 --batch-size 8
+
+python -m tools.test_memory /home/rvl122-4090/An/test_Final/CL/images /home/rvl122-4090/An/test_Final/CL/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/test_Final/CL/test_gnss.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test_final/CL_v1 --logdir logdir/b8_v2_seed_42 --batch-size 8
+
+python -m tools.test_memory /home/rvl122-4090/An/test_Final/CN/images /home/rvl122-4090/An/test_Final/CN/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/test_Final/CN/test_gnss.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test_final/CN_v1 --logdir logdir/b8_v2_seed_42 --batch-size 8
+
+python -m tools.test_memory /home/rvl122-4090/An/test_Final/L/images /home/rvl122-4090/An/test_Final/L/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/test_Final/L/test_gnss.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test_final/L_v1 --logdir logdir/b8_v2_seed_42 --batch-size 8
+
+
+
+
+
+
+
+
+
+
+
+
+python -m tools.test_memory /home/rvl122-4090/An/dataset/diff_test/L/images /home/rvl122-4090/An/dataset/diff_test/L/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/dataset/diff_test/L/gnss/L_gps.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test/L_v1111 --logdir logdir/b8_v2_seed_42 --batch-size 8
+
+原始seg測試
+python -m tools.test_v1 /home/rvl122-4090/An/dataset/diff_test/all/images /home/rvl122-4090/An/dataset/diff_test/all/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/original_early_stop_pat50_b8_seed_42/checkpoint_412_best.pth  --save-dir test/all_v1  --batch-size 8
+
+python -m tools.test_v1 /home/rvl122-4090/An/dataset/diff_test/L/images /home/rvl122-4090/An/dataset/diff_test/L/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/original_early_stop_pat50_b8_seed_42/checkpoint_412_best.pth  --save-dir test/L_v1  --batch-size 8
+
+python -m tools.test_v1 /home/rvl122-4090/An/dataset/diff_test/CN/images /home/rvl122-4090/An/dataset/diff_test/CN/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/original_early_stop_pat50_b8_seed_42/checkpoint_412_best.pth  --save-dir test/CN_v1  --batch-size 8
+
+python -m tools.test_v1 /home/rvl122-4090/An/dataset/diff_test/CL/images /home/rvl122-4090/An/dataset/diff_test/CL/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/original_early_stop_pat50_b8_seed_42/checkpoint_412_best.pth  --save-dir test/CL_v1  --batch-size 8
+
+python -m tools.test_v1 /home/rvl122-4090/An/dataset/diff_test/C/images /home/rvl122-4090/An/dataset/diff_test/C/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/original_early_stop_pat50_b8_seed_42/checkpoint_412_best.pth  --save-dir test/C_v1  --batch-size 8
+
+python -m tools.test_v1 /home/rvl122-4090/An/dataset/diff_test/N/images /home/rvl122-4090/An/dataset/diff_test/N/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/original_early_stop_pat50_b8_seed_42/checkpoint_412_best.pth  --save-dir test/N_v1  --batch-size 8
+
+python -m tools.test_v1 /home/rvl122-4090/An/dataset/diff_test/RL/images /home/rvl122-4090/An/dataset/diff_test/RL/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/original_early_stop_pat50_b8_seed_42/checkpoint_412_best.pth  --save-dir test/RL_v1  --batch-size 8
+
+python -m tools.test_v1 /home/rvl122-4090/An/dataset/diff_test/R/images /home/rvl122-4090/An/dataset/diff_test/R/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/original_early_stop_pat50_b8_seed_42/checkpoint_412_best.pth  --save-dir test/R_v1  --batch-size 8
+
+python -m tools.test_v1 /home/rvl122-4090/An/dataset/diff_test/S/images /home/rvl122-4090/An/dataset/diff_test/S/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/original_early_stop_pat50_b8_seed_42/checkpoint_412_best.pth  --save-dir test/S_v1  --batch-size 8
+
+python -m tools.test_v1 /home/rvl122-4090/An/dataset/diff_test/SL/images /home/rvl122-4090/An/dataset/diff_test/SL/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/original_early_stop_pat50_b8_seed_42/checkpoint_412_best.pth  --save-dir test/SL_v1  --batch-size 8
+
+
+只有gps訓練
+python -m tools.geotrain_v2_early_v1_ data/train/train_rgb data/train/train_seg data/val/val_rgb data/val/val_seg data/csv/323.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv 1000 logdir/b8_v2_Ab_gps --ablation-mode gps_only  --contrastive-weight 0.0 --batch-size 8 --early-stop --patience 50 --min-delta 0.0001 --monitor mIoU --keep-only-best --seed 42 --lr-backbone 0.0002 --lr-head 0.0003 --lr-gps 0.0003 --lr-fusion 0.0003 -num-workers 8
+
+消融實驗
+python -m tools.test_memory /home/rvl122-4090/An/dataset/diff_test/L/images /home/rvl122-4090/An/dataset/diff_test/L/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/dataset/diff_test/L/gnss/L_gps.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test/L_compare --logdir logdir/b8_v2_seed_42 --batch-size 8 --compare-with-without-memory 
+
+
+
+原始
+python -m tools.train_backbone data/train/train_rgb data/train/train_seg data/val/val_rgb data/val/val_seg data/csv/323.csv 1000 logdir/b8 --batch-size 8 --early-stop --patience 50 --min-delta 0.0001 --monitor mIoU --keep-only-best --seed 42 --backbone deeplabv3 --pretrained facebook/deeplabv3-resnet50
+
+python -m tools.train_backbone data/train/train_rgb data/train/train_seg data/val/val_rgb data/val/val_seg data/csv/323.csv 1000 logdir/b8_oneformer --batch-size 8 --early-stop --patience 50 --min-delta 0.0001 --monitor mIoU --keep-only-best --seed 42 --backbone oneformer  --pretrained shi-labs/oneformer_ade20k_swin_large
+
+
+python -m tools.train_backbone data/train/train_rgb data/train/train_seg data/val/val_rgb data/val/val_seg data/csv/323.csv 1000 logdir/b8 --batch-size 8 --early-stop --patience 50 --min-delta 0.0001 --monitor mIoU --keep-only-best --seed 42 --backbone deeplabv3_mobilenet_v3_large
+
+
+python -m tools.train_backbone data/train/train_rgb data/train/train_seg data/val/val_rgb data/val/val_seg data/csv/323.csv 1000 logdir/b8 --batch-size 8 --early-stop --patience 50 --min-delta 0.0001 --monitor mIoU --keep-only-best --seed 42 --backbone upernet --pretrained openmmlab/upernet-convnext-tiny
+
+
+python -m tools.test_mem /home/rvl122-4090/An/dataset/diff_test/L/images /home/rvl122-4090/An/dataset/diff_test/L/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/dataset/diff_test/L/gnss/L_gps.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test/L_v1111 --logdir logdir/b8_v2_seed_42 --batch-size 8 --compare-with-without-memory --verify-gps-quantization --show-memory-stats 
+
+python -m tools.test_gps /home/rvl122-4090/An/dataset/diff_test/L/images /home/rvl122-4090/An/dataset/diff_test/L/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_m0_seed_42/checkpoint_403_best.pth /home/rvl122-4090/An/dataset/diff_test/L/gnss/all_gps.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test/L_gps --batch-size 8 
+
+python -m tools.test_memory /home/rvl122-4090/An/dataset/diff_test/L/images /home/rvl122-4090/An/dataset/diff_test/L/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth /home/rvl122-4090/An/dataset/diff_test/L/gnss/L_gps.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test/L_v1111 --logdir logdir/b8_v2_seed_42 --batch-size 8
+
+python -m tools.test_gps /home/rvl122-4090/An/dataset/diff_test/all/images /home/rvl122-4090/An/dataset/diff_test/all/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/original_early_stop_pat50_b8_seed_42/checkpoint_412_best.pth  --save-dir test/all_v1  --batch-size 8
+
+python -m tools.test_gps /home/rvl122-4090/An/dataset/diff_test/all/images /home/rvl122-4090/An/dataset/diff_test/all/seg data/csv/323.csv /home/rvl122-4090/An/memory/logdir/b8_v2_m0_seed_42/checkpoint_403_best.pth /home/rvl122-4090/An/dataset/diff_test/all/gnss/all_gps.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv --save-dir test/all_gps --batch-size 8
+
+python -m tools.geotrain_v2_early_v1 data/train/train_rgb data/train/train_seg data/val/val_rgb data/val/val_seg data/csv/323.csv data/gnss/train_gnss.csv data/gnss/val_gnss.csv 1000 logdir/b8_v2 --memory-size 40 --spatial-radius 0.000001 --contrastive-weight 0.1 --spatial-threshold 0.000522 --batch-size 8 --save-memory-stats --early-stop --patience 50 --min-delta 0.0001 --monitor mIoU --keep-only-best --seed 42 --lr-backbone 0.0002 --lr-head 0.0003 --lr-gps 0.0003 --lr-memory 0.0006 --lr-fusion 0.0006
+
+

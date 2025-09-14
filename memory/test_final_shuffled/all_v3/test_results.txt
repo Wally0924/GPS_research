@@ -1,0 +1,36 @@
+Enhanced GeoSegformer Test Results
+==================================================
+
+Checkpoint: /home/rvl122-4090/An/memory/logdir/b8_v2_seed_42/checkpoint_348_best.pth
+Memory Bank: False
+Test samples: 169
+Average Loss: 0.11182
+Mean IoU: 0.75457
+Mean Accuracy: 0.87475
+
+Per-category results:
+buildings: IoU=0.92372, Acc=0.96090
+roadlines: IoU=0.76197, Acc=0.88668
+roads: IoU=0.97265, Acc=0.98251
+vehicles: IoU=0.89360, Acc=0.92910
+walls: IoU=0.74401, Acc=0.85699
+sky: IoU=0.93855, Acc=0.96888
+ground: IoU=0.90944, Acc=0.94893
+trafficlight: IoU=0.80109, Acc=0.90182
+rider: IoU=0.68874, Acc=0.83950
+motorcycle: IoU=0.48750, Acc=0.82001
+bicycle: IoU=0.38743, Acc=0.67855
+truck: IoU=0.90087, Acc=0.96889
+bus: IoU=0.88992, Acc=0.91575
+pedestrians: IoU=0.67617, Acc=0.83216
+static: IoU=0.81104, Acc=0.90872
+pole: IoU=0.62903, Acc=0.84252
+sidewalks: IoU=0.93525, Acc=0.97071
+dynamic: IoU=0.73069, Acc=0.82724
+trafficsign: IoU=0.68877, Acc=0.86144
+vegetation: IoU=0.82846, Acc=0.88642
+water: IoU=0.52759, Acc=0.72987
+terrain: IoU=0.57050, Acc=0.88337
+railtrack: IoU=0.97044, Acc=0.97773
+poster: IoU=0.87070, Acc=0.96018
+Fences: IoU=0.32610, Acc=0.52982

@@ -1,0 +1,15 @@
+yolo detect train model=yolo11n.pt data=data_gps.yaml imgsz=640 epochs=10000 batch=16 device=0
+yolo detect train model=yolo10n.pt data=data_gps.yaml imgsz=640 epochs=10000 batch=16 device=0
+yolo detect train model=yolo12n.pt data=data_gps.yaml imgsz=640 epochs=10000 batch=16 device=0
+
+
+
+yolo detect val model=runs/detect/train15/weights/best.pt data=data_gps.yaml imgsz=640 batch=16 device=0
+yolo predict model=runs/detect/train15/weights/best.pt source=/home/rvl122-4090/An/GPS_v10/data/data_gps/val/images save=True save_txt=True
+
+yolo detect val model=runs/detect/train16/weights/best.pt data=data_gps.yaml imgsz=640 batch=16 device=0
+yolo predict model=runs/detect/train16/weights/best.pt source=/home/rvl122-4090/An/GPS_v10/data/data_gps/val/images save=True save_txt=True
+
+
+yolo detect val model=runs/detect/train17/weights/best.pt data=data_gps.yaml imgsz=640 batch=16 device=0
+yolo predict model=runs/detect/train17/weights/best.pt source=/home/rvl122-4090/An/GPS_v10/data/data_gps/val/images save=True save_txt=True

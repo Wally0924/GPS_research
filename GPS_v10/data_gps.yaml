@@ -1,0 +1,11 @@
+channels: 3
+names:
+- car
+- motorcycle
+- person
+- park_car
+- park_moto
+- traffic_light
+nc: 6
+train: data/data_gps/train/images
+val: data/data_gps/val/images
