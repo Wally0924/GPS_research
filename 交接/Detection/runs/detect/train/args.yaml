@@ -2,10 +2,10 @@ task: detect
 mode: train
 model: yolov10n.pt
 data: data_gps.yaml
-epochs: 100
+epochs: 2000
 time: null
 patience: 100
-batch: 16
+batch: 64
 imgsz: 640
 save: true
 save_period: -1
