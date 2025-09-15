@@ -1,0 +1,12 @@
+path: /home/rvl1421/GPS_research/交接/Detection/Dete_dataset
+channels: 3
+names:
+- car
+- motorcycle
+- person
+- park_car
+- park_moto
+- traffic_light
+nc: 6
+train: /home/rvl1421/GPS_research/交接/Detection/Dete_dataset/train
+val: /home/rvl1421/GPS_research/交接/Detection/Dete_dataset/val

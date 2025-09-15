@@ -23,7 +23,14 @@ python true_gps_training_v4.1.py \
   --predict \
   --model runs/train7/weights/best.pt \
   --gps-val-csv data/val_gnss.csv \
-  --source data/data_gps/val/images \
+  --source data/data_gps/val/images \  python true_gps_training_v4.1.py \
+    --data data_gps.yaml \
+    --gps-train-csv data/data_gps/train_gnss.csv \
+    --gps-val-csv data/data_gps/val_gnss.csv \
+    --model yolov10n.yaml \
+    --epochs 10000 \
+    --batch-size 16 \
+    --imgsz 640
   --imgsz 640 
 
  yolo task=detect mode=train    model=yolov10n.pt    data=data_gps.yaml    imgsz=640    batch=16    epochs=10000    name=my_run
