@@ -13,3 +13,5 @@
 *.log
 *.pyc
 *.pt
+/home/rvl1421/GPS_research/交接/Seg/transformers
+/home/rvl1421/GPS_research/memory/transformers
