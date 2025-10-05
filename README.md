@@ -78,13 +78,14 @@
 cd 交接/Detection
 
 # 執行訓練
-python true_gps_training_v4.2.py \
-  --data ../../GPS_v10/data_gps.yaml \
-  --gps-train-csv ../../dataset/Alldata/gps_train.csv \
-  --gps-val-csv ../../dataset/Alldata/gps_val.csv \
+  python true_gps_training_v4.2.py   
+  --data data_gps.yaml \   
+  --gps-train-csv Dete_dataset/train_gps.csv \
+  --gps-val-csv Dete_dataset/val_gps.csv \
   --model yolov10n.pt \
-  --epochs 100 \
-  --batch-size 16
+  --epochs 2000 \
+  --batch-size 64 \
+  --imgsz 640
 ```
 
 ### 執行語意分割訓練
